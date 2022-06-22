@@ -27,19 +27,6 @@ def day3_part2(lines: list[str]):
     
     return oxygen * co2
 
-'''
-[
-    {0: count, 1: count},
-    {0: count, 1: count}
-]
-'''
-BitCount = list[dict[int, int]]
-
-def count_01s(acc: BitCount, cur: list[int]):
-    for i, b in enumerate(cur):
-        acc[i][b] += 1
-    return acc
-
 def get_rating(type: Rating, bit_length: int, lines: list[list[int]]):
     result = [''] * bit_length
     is_oxygen = type == Rating.OXYGEN
@@ -49,12 +36,9 @@ def get_rating(type: Rating, bit_length: int, lines: list[list[int]]):
             result = list(map(str, lines[0]))
             break
         
-        initial = list(map(lambda _: {0: 0, 1: 0}, [None] * len(lines[0])))
-        count_result = reduce(count_01s, lines, initial)
-        
-        zero_bit_count = count_result[i][0]
-        one_bit_count = count_result[i][1]
-        
+        zero_bit_count = sum([1 if line[i] == 0 else 0 for line in lines])
+        one_bit_count = sum([1 if line[i] == 1 else 0 for line in lines])
+
         if one_bit_count >= zero_bit_count:
             result[i] = '1' if is_oxygen else '0'
             lines = list(filter(lambda x: x[i] == (1 if is_oxygen else 0), lines))
