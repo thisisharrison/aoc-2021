@@ -1,14 +1,15 @@
 from enum import Enum
 from functools import reduce
+from typing import List
 
-def day3_part1(lines: list[str]):
+def day3_part1(lines: List[str]):
     acc = reduce(aggregate_bit, lines, [0] * len(lines[0].strip()))
     half = len(lines) / 2
     gamma = ['1' if x > half else '0' for x in acc]
     epsilon = ['1' if x < half else '0' for x in acc]
     return int(''.join(gamma), base=2) * int(''.join(epsilon), base=2)
 
-def aggregate_bit(acc: list[int], cur: str):
+def aggregate_bit(acc: List[int], cur: str):
     cur_list = list(map(int, list(cur.strip())))
     for i, num in enumerate(cur_list):
         acc[i] += num
@@ -18,7 +19,7 @@ class Rating(Enum):
     OXYGEN = 'oxygen'
     CO2 = 'co2'
 
-def day3_part2(lines: list[str]):
+def day3_part2(lines: List[str]):
     clean_lines = list(map(lambda line: list(map(int, list(line.strip()))), lines))
     bit_length = len(clean_lines[0])
 
@@ -27,7 +28,7 @@ def day3_part2(lines: list[str]):
     
     return oxygen * co2
 
-def get_rating(type: Rating, bit_length: int, lines: list[list[int]]):
+def get_rating(type: Rating, bit_length: int, lines: List[List[int]]):
     result = [''] * bit_length
     is_oxygen = type == Rating.OXYGEN
 

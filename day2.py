@@ -1,4 +1,7 @@
-def day2_part1(lines: list[str]):
+from typing import List
+
+
+def day2_part1(lines: List[str]):
     horizontal_pos = 0
     depth = 0
     
@@ -14,7 +17,7 @@ def day2_part1(lines: list[str]):
 
     return horizontal_pos * depth
 
-def day2_part2(lines: list[str]):
+def day2_part2(lines: List[str]):
     horizontal_pos = 0
     depth = 0
     aim = 0

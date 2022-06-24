@@ -1,6 +1,9 @@
-def day5_part1(lines: list[str]):
+from typing import Dict, List, Tuple
+
+
+def day5_part1(lines: List[str]):
     segments = parse_input(lines)
-    count: dict[str, int] = {}
+    count: Dict[str, int] = {}
 
     for (start, end) in segments:
         if is_overlapped(start, end):
@@ -14,9 +17,9 @@ def day5_part1(lines: list[str]):
     
     return result
 
-def day5_part2(lines: list[str]):
+def day5_part2(lines: List[str]):
     segments = parse_input(lines)
-    count: dict[str, int] = {}
+    count: Dict[str, int] = {}
 
     for (start, end) in segments:
         if is_overlapped(start, end):
@@ -33,7 +36,7 @@ def day5_part2(lines: list[str]):
     return result
 
 
-def parse_input(lines: list[str]):
+def parse_input(lines: List[str]):
     return [parse_line(line) for line in lines]
 
 def parse_line(line: str):    
@@ -42,17 +45,17 @@ def parse_line(line: str):
 def parse_segment(segment: str):
     return tuple(map(int, segment.strip().split(',')))
 
-def is_overlapped(seg1: tuple[int], seg2: tuple[int]):
+def is_overlapped(seg1: Tuple[int], seg2: Tuple[int]):
     x1, y1 = list(seg1)
     x2, y2 = list(seg2)
     return x1 == x2 or y1 == y2
 
-def is_diagonal(seg1: tuple[int], seg2: tuple[int]):
+def is_diagonal(seg1: Tuple[int], seg2: Tuple[int]):
     x1, y1 = list(seg1)
     x2, y2 = list(seg2)
     return abs(x1 - x2) == abs(y1 - y2)
 
-def count_overlap(start: tuple[int, int], end: tuple[int, int], count: dict[str, int]):
+def count_overlap(start: Tuple[int, int], end: Tuple[int, int], count: Dict[str, int]):
     x1, y1 = start
     x2, y2 = end
     
@@ -71,7 +74,7 @@ def count_overlap(start: tuple[int, int], end: tuple[int, int], count: dict[str,
             count[key] = count.get(key, 0) + 1
             i += 1 if is_greater else -1
 
-def count_diagonal(start: tuple[int, int], end: tuple[int, int], count: dict[str, int]):
+def count_diagonal(start: Tuple[int, int], end: Tuple[int, int], count: Dict[str, int]):
     x1, y1 = start
     x2, y2 = end
     

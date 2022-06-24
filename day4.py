@@ -1,6 +1,9 @@
-Board = list[list[int]]
+from typing import List
 
-def day4_part1(lines: list[str]):
+
+Board = List[List[int]]
+
+def day4_part1(lines: List[str]):
     numbers, boards = parse_input(lines)
     for target in numbers: 
         for board in boards:
@@ -8,7 +11,7 @@ def day4_part1(lines: list[str]):
             if won(board):
                 return sum_of_all_unmarked(board) * target
 
-def day4_part2(lines: list[str]):
+def day4_part2(lines: List[str]):
     numbers, boards = parse_input(lines)
     boards_copy = boards.copy()
     total = len(boards)
@@ -28,12 +31,12 @@ def day4_part2(lines: list[str]):
                     boards_copy[i] = None
         
 
-def parse_input(lines: list[str]):
+def parse_input(lines: List[str]):
     org_numbers, *org_boards = lines
     numbers = list(map(int, org_numbers.strip().split(',')))
 
     curr: Board = []
-    boards: list[Board] = []
+    boards: List[Board] = []
 
     for i, line in enumerate(org_boards):
         if (line == '\n' and i > 0):

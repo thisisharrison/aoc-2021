@@ -1,4 +1,7 @@
-def day1_part1(lines: list[str]):
+from typing import List
+
+
+def day1_part1(lines: List[str]):
     count = 0
     for i, line in enumerate(lines): 
         curr = int(line.strip())
@@ -8,7 +11,7 @@ def day1_part1(lines: list[str]):
                 count += 1
     return count
 
-def day1_part2(lines: list[str]):
+def day1_part2(lines: List[str]):
     l = 0
     runningSum = 0
     prevSum = 0
