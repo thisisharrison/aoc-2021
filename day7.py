@@ -1,4 +1,5 @@
 import sys
+from typing import Dict
 
 
 def day7_part1(line: str):
@@ -20,7 +21,7 @@ def sum_sequence(x):
 def day7_part2(line: str):
     crabs = list(map(int, line.strip().split(',')))
     
-    memo: dict[int, int] = {}
+    memo: Dict[int, int] = {}
     i = min(crabs)
     least_fuel = sys.maxsize
     
@@ -28,8 +29,9 @@ def day7_part2(line: str):
         total_fuel = 0
         for crab in crabs:
             distance = abs(crab - i) 
-            fuel = memo.setdefault(distance, sum_sequence(distance))
+            fuel = memo.get(distance, sum_sequence(distance))
             total_fuel += fuel
+            memo[distance] = fuel
 
         if total_fuel < least_fuel: 
             least_fuel = total_fuel
