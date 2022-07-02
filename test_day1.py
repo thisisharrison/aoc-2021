@@ -13,7 +13,7 @@ input = [
     '263'
 ]
 
-file = open('day1.txt', 'r', newline='', encoding='utf-8')
+file = open('puzzles/day1.txt', 'r', newline='', encoding='utf-8')
 lines = file.readlines()
 
 def test_part1():

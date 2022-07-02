@@ -9,7 +9,7 @@ input = [
     'forward 2'
 ]
 
-file = open('day2.txt', 'r', newline='', encoding='utf-8')
+file = open('puzzles/day2.txt', 'r', newline='', encoding='utf-8')
 
 lines = file.readlines()
 

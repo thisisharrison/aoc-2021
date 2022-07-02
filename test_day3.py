@@ -15,7 +15,7 @@ input = [
     '01010'
 ]
 
-file = open('day3.txt', 'r', newline='', encoding='utf-8')
+file = open('puzzles/day3.txt', 'r', newline='', encoding='utf-8')
 
 lines = file.readlines()
 

@@ -8,7 +8,7 @@ input = [
     '9899965678'
 ]
 
-file = open('day9.txt', 'r', newline='', encoding='utf-8')
+file = open('puzzles/day9.txt', 'r', newline='', encoding='utf-8')
 
 lines = file.readlines()
 

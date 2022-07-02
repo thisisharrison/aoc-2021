@@ -2,7 +2,7 @@ from day7 import day7_part1, day7_part2
 
 input = '16,1,2,0,4,2,7,1,2,14'
 
-file = open('day7.txt', 'r', newline='', encoding='utf-8')
+file = open('puzzles/day7.txt', 'r', newline='', encoding='utf-8')
 
 line = file.readlines()[0]
 

@@ -13,7 +13,7 @@ input = [
     'gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce',
 ]
 
-file = open('day8.txt', 'r', newline='', encoding='utf-8')
+file = open('puzzles/day8.txt', 'r', newline='', encoding='utf-8')
 
 lines = file.readlines()
 

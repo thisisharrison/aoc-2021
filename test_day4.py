@@ -22,7 +22,7 @@ input = [
     ' 2  0 12  3  7',
 ]
 
-file = open('day4.txt', 'r', newline='', encoding='utf-8')
+file = open('puzzles/day4.txt', 'r', newline='', encoding='utf-8')
 
 lines = file.readlines()
 

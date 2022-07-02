@@ -13,7 +13,7 @@ input = [
     '5,5 -> 8,2'
 ]
 
-file = open('day5.txt', 'r', newline='', encoding='utf-8')
+file = open('puzzles/day5.txt', 'r', newline='', encoding='utf-8')
 
 lines = file.readlines()
 
